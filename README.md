@@ -13,7 +13,6 @@ compile using
 
 ```
 babel ./dev/ --out-files ./build/app.js
-
 ````
 
 ---
