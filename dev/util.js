@@ -1,9 +1,6 @@
 function getElem(id) {
     return document.getElementById(id);
 }
-function randomNumBetween(min, max) {
-    return Math.round(Math.random() * (max - min + 1) + min);
-}
 
 function randomColor() {
     let letters = '0123456789ABCDEF'.split('');
@@ -19,6 +16,10 @@ function randomColor() {
 
 function randomNegativenumber(min, max) {
     return negPos()  * randomNumBetween(min, max);
+}
+
+function randomNumBetween(min, max) {
+    return Math.round(Math.random() * (max - min + 1) + min);
 }
 
 function negPos () {

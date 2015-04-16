@@ -1,13 +1,14 @@
-class ParticleSystem extends Canvas {
-    constructor(elem, amount = 1000) {
+class ParticleSystem extends BaseCanvas {
+
+    constructor(elem, amount = 1) {
         super(elem);
         this.particles = [];
         this.amount = amount;
 
         this.velocity = 5;
 
-        // range input element for amount of balls
-        // and input for velocity
+        this.animation = null
+
         this.init();
     }
 
@@ -15,27 +16,23 @@ class ParticleSystem extends Canvas {
 
         this.setListeners();
 
-        // set listeners on inputs
         this.createParticles();
         this.loop();
     }
 
     setListeners() {
-        let range = getElem('velo');
+
+        let range = getElem('velo'),
+            amount = getElem('amount');
 
         range.addEventListener('change',() =>{
             this.velocity = range.value;
             this.reset();
         },false);
 
-        let amount = getElem('amount');
-
         amount.addEventListener('change', () => {
             this.amount = amount.value;
-
-            console.log(this.amount);
             this.reset();
-
         }, false);
     }
 
@@ -55,13 +52,12 @@ class ParticleSystem extends Canvas {
         this.particles.forEach((particle) => {
             particle.update();
 
-            particle.kill(this.canvasHeight, this.canvaWidth, this.canvasHeight / 2);
+            particle.kill(this.canvasHeight, this.canvaWidth, this.canvasHeight / 2, this.velocity);
 
             particle.draw(this.context);
 
             this.createParticles();
         });
-
 
         window.requestAnimationFrame(this.loop.bind(this));
     }
@@ -69,7 +65,6 @@ class ParticleSystem extends Canvas {
 
     createParticles() {
         let particleLength = this.particles.length;
-
 
         if (this.tick % 10 === 0 && particleLength < this.amount) {
             let particle;
@@ -80,8 +75,8 @@ class ParticleSystem extends Canvas {
             particle.x = this.canvasWidth / 2;
             particle.y = this.canvasHeight / 2;
 
-            particle.xVelocity = randomNegativenumber(this.velocity, this.velocity * 2);
-            particle.yVelocity = randomNegativenumber(this.velocity, this.velocity * 2);
+            particle.xVelocity = randomNegativenumber(this.velocity, this.velocity * randomNumBetween(1, 5));
+            particle.yVelocity = randomNegativenumber(this.velocity, this.velocity * randomNumBetween(1, 5));
         }
 
         this.tick++;

@@ -1,4 +1,4 @@
-class Canvas {
+class BaseCanvas {
 
     constructor(elem) {
         this.canvas = getElem(elem);

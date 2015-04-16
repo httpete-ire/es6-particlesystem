@@ -8,7 +8,6 @@ class Particle {
         this.yVelocity = 0;
     }
 
-
     draw (context) {
         context.save();
 
@@ -30,10 +29,13 @@ class Particle {
         this.y += this.yVelocity;
     }
 
-    kill (height, width, postition = 0) {
+    kill (height, width, postition = 0, velocity = 10) {
         if(this.y > height || this.y < 0 || this.x > width || this.x < 0) {
             this.y = postition;
             this.x = postition;
+            // set random direction
+            this.xVelocity = randomNegativenumber(velocity, velocity * 1.5);;
+            this.yVelocity = randomNegativenumber(velocity, velocity * 1.5);;
         }
     }
 }
