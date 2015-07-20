@@ -145,6 +145,6 @@ loop() {
 The loop method will draw each particle to the canvas, and if it is out of the canvas boundaries will reset the starting position.
 
 #Conclusion
-While researching the new features of ECMAscript 6 I was sceptical that they would make a  difference to the way JavaScript is currently written. After developing the particle system using some of the features of ES6 I can safely say that in my opinion development is much easier and the old pitfalls of JavaScript no longer exist (mainly global scope).
+While researching the new features of ECMAscript 6 I was sceptical that they would make a  difference to the way JavaScript is currently written. After developing the particle system using some of the features of ES6 I can safely say that in my opinion development is much easier and the old pitfalls of JavaScript no longer exist (global scope, 'this' context).
 
-While I can recommended developing small applications in ES6, I would refrain from doing so in big applications as the code executed by the browser (ES5) is very different to the code written in ES6. Debugging the code can be extremely hard and confusing. For the time being I would recommend sticking with ES5 but to keep a close eye on the development and specs of ES6 because it is clearing the future of JavaScript. 
+While I can recommended developing small applications in ES6, I would refrain from doing so in big applications as the code executed by the browser (ES5) is very different to the code written in ES6. Debugging the code can be extremely hard and confusing. For the time being I would recommend sticking with ES5 but to keep a close eye on the development and specs of ES6 because it is clearly the future of JavaScript. 
